@@ -4,57 +4,44 @@ Arrow menu helps you make simple ascii art lists that can be navigated using the
 
 ## 🤓 *Example usage*
 
-# ⚠️!!!OUTDATED!!!⚠️
+# ArrowMenu Class documentation
 
-First, add the `ArrowMenu` class to your project.
+This class creates a vertical menu that can be displayed on the console, with a title and multiple menu items. The user can navigate through the menu using the up and down arrow keys, and select an option using the enter key. The class also allows for customizing the decoration characters and padding of the menu. 
 
-To make an arrow menu you must have data to display in it. The menu items should be an a 1D string array. The arrow menus selection will return the index of this array. Here is an example of the data array
+## Properties
+
+The class has the following properties:
+
+- `title` (string): The title of the menu that will be displayed at the top of the menu.
+
+- `menuItems` (string[]): The items that will be displayed in the menu.
+
+- `decorationCharacters` (int): The number of characters to use for the decoration.
+
+- `padding` (int): The amount of padding to use for each menu item.
+
+## Methods
+
+The class has the following method:
+
+- `VerticalMenu()`: This method displays the menu on the console and returns the index of the selected item.
+
+## Example
 ```cs
-string[] options = new string[] { "Mercury", "Earth", "Jupiter", "Neptune" };
-```
+// Create an instance of the ArrowMenu class
+ArrowMenu menu = new ArrowMenu()
+{
+title = "Which of the above planets is largest?",
+menuItems = new[] { "Mercury", "Earth", "Jupiter", "Neptune" },
+decorationCharacters = 4,
+padding = 5
+};
 
-To create the actual arrow menu you must make a new int to store the answer. Call the arrow menu method that you need, and pass in the array we created above. Here is an example of making a menu:
-```cs
-int answer = ArrowMenu.VerticalMenu(options);
-```
-<details><summary>Example output</summary>
-
-```
-╔═══════════════════════════════════════════════╗
-║ > Mercury                                     ║
-║   Earth                                       ║
-║   Jupiter                                     ║
-║   Neptune                                     ║
-╚═══════════════════════════════════════════════╝
-```
-</details>
-
-You can also optionally include a string for a title. Here is an example of making a menu with a title:
-```cs
-int answer = ArrowMenu.VerticalMenu(options, "Which of these planets is largest?");
-```
-<details><summary>Example output</summary>
-
-```
-╔═══════════════════════════════════════════════╗
-║   Which of these planets is largest?          ║
-╟───────────────────────────────────────────────╢
-║ > Mercury                                     ║
-║   Earth                                       ║
-║   Jupiter                                     ║
-║   Neptune                                     ║
-╚═══════════════════════════════════════════════╝
-```
-</details>
-
-
-The user can interact with the menu by using the arrow keys to move up and down. When they have selected the option that they want, pressing the enter key will submit the menu. Here is a full example of using an arrow menu:
-```cs
-// Make the menu
-string[] options = new string[] { "Mercury", "Earth", "Jupiter", "Neptune" };
-int answer = ArrowMenu.VerticalMenu(options, "Which of these planets is largest?");
+// Show the menu and get the selected index
+int answer = menu.VerticalMenu();
 
 // Check for if they selected the correct answer
 if (answer == 2) Console.WriteLine("Correct!");
 else Console.WriteLine("Incorrect!");
 ```
+Note that the above example code creates an instance of the `ArrowMenu` class and sets the `title`, `menuItems`, `decorationCharacters`, and `padding` properties. It then calls the `VerticalMenu()` method to display the menu on the console and gets the selected index. The selected index can then be used to check if the correct option was selected.
