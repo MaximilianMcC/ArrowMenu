@@ -1,22 +1,24 @@
 class ArrowMenu
 {
-	//TODO: Also get string lists and char lists/arrays and stuff
-	//TODO: Add comments saying what all of the random numbers are
-	public static int VerticalMenu(string[] menuItems, string title = "")
+	public string title { get; set; }
+	public int padding { get; set; }
+	public int decorationCharacters { get; set; }
+	public string[] menuItems { get; set; }
+
+
+
+	public int VerticalMenu()
 	{
 		// Menu properties
 		int menuIndex = 0;
-		int menuPadding = 5;
-		int decorationCharacters = 4; //? Stuff like the walls, and arrow thats shows the selected item
 
 		// Get the total width of the menu
 		int menuWidth = title.Length;
 		foreach (string item in menuItems) if (item.Length > menuWidth) menuWidth = item.Length;
-		menuWidth += (decorationCharacters + menuPadding);
+		menuWidth += (decorationCharacters + padding);
 
 		// Get the position of all of the menu items
 		int menuItemsPosition = Console.GetCursorPosition().Top;
-
 
 
 
@@ -56,6 +58,7 @@ class ArrowMenu
 				string whitespace = new string(' ', menuWidth - (menuItems[i].Length + decorationCharacters));
 
 
+
 				// Highlight the selected menu item
 				if (i == menuIndex)
 				{
@@ -92,5 +95,4 @@ class ArrowMenu
 			else if (menuIndex < 0) menuIndex = menuItems.Length - 1;
 		}
 	}
-
 }
