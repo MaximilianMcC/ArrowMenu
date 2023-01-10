@@ -28,13 +28,13 @@ int answer = ArrowMenu.VerticalMenu(options);
 
 You can also optionally include a string for a title. Here is an example of making a menu with a title:
 ```cs
-int answer = ArrowMenu.VerticalMenu(options, "Which of these above planets is largest?");
+int answer = ArrowMenu.VerticalMenu(options, "Which of these planets is largest?");
 ```
 <details><summary>Example output</summary>
 
 ```
 ╔═══════════════════════════════════════════════╗
-║Which of the above planets is largest?         ║
+║Which of these planets is largest?             ║
 ╟───────────────────────────────────────────────╢
 ║ > Mercury                                     ║
 ║   Earth                                       ║
