@@ -34,7 +34,7 @@ int answer = ArrowMenu.VerticalMenu(options, "Which of these planets is largest?
 
 ```
 ╔═══════════════════════════════════════════════╗
-║Which of these planets is largest?             ║
+║   Which of these planets is largest?          ║
 ╟───────────────────────────────────────────────╢
 ║ > Mercury                                     ║
 ║   Earth                                       ║
