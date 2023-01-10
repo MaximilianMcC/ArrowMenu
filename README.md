@@ -3,6 +3,9 @@ Arrow menu helps you make simple ascii art lists that can be navigated using the
 
 
 ## 🤓 *Example usage*
+
+# ⚠️!!!OUTDATED!!!⚠️
+
 First, add the `ArrowMenu` class to your project.
 
 To make an arrow menu you must have data to display in it. The menu items should be an a 1D string array. The arrow menus selection will return the index of this array. Here is an example of the data array
