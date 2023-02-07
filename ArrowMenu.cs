@@ -32,8 +32,8 @@ enum LineStyle
 
 class ArrowMenu
 {
-	string[] menuItems { get; set; }
-	MenuStyle menuStyle { get; set; }
+	string[] menuItems;
+	MenuStyle menuStyle;
 
 
 	// Constructor that makes a new arrow menu
@@ -44,10 +44,73 @@ class ArrowMenu
 	}
 
 
-	public static int Menu()
+	public int Menu()
 	{
+		int index = 0;
+		int menuTop = Console.CursorTop + 1;
+		int menuWidth = 0;
+
+
+		// Draw the menu borders
+		if (menuStyle.fullWidth == true)
+		{
+			DrawBox(Console.WindowWidth - 1, menuItems.Length);
+
+			// Assign the inner menu width
+			menuWidth = Console.WindowWidth - 3;
+		}
+		else
+		{
+			// Calculate the total width of the menu
+			int menuBoxWidth = menuItems.Max(menuItem => menuItem.Length);
+
+			// Apply padding and prefix
+			menuBoxWidth += 10;
+			menuBoxWidth += menuStyle.prefix.Length;
+
+			// Draw the menu borders
+			DrawBox(menuBoxWidth, menuItems.Length);
+
+			// Assign the inner menu width
+			menuWidth = menuBoxWidth - 2;
+		}
 		
-		
+
+		// Add in all of the menu items
+		while (true)
+		{
+
+			// Loop over all menu items
+			for (int i = 0; i < menuItems.Length; i++)
+			{
+				// Set the correct cursor position
+				Console.SetCursorPosition(1, menuTop + i);
+
+				// Check for if the current one is selected, else draw it normally
+				if (index == i)
+				{
+					// Switch the colors
+					Console.ForegroundColor = ConsoleColor.Black;
+					Console.BackgroundColor = ConsoleColor.White;
+
+					// Add the background color thing
+					Console.Write(new string(' ', menuWidth));
+
+					// Add the menu item
+					Console.SetCursorPosition(1, Console.CursorTop);
+					Console.Write(menuStyle.prefix + menuItems[i]);
+				}
+				else Console.Write(new string(' ', menuStyle.prefix.Length) + menuItems[i]);
+
+
+				// Set the colors back to the original
+				Console.ResetColor();
+			}
+
+			break;
+		}
+
+
 		return 0;
 	}
 
