@@ -9,7 +9,7 @@ Speed and looks are a priority in this library. There are different line styles 
 These arrow menu objects have have an optional line style supplied. Currently, you can choose from *thin*, *thick*, or *classic*.
 ```cs
 // Has a default of thin line style
-ArrowMenu arrowMenu = new ArrowMenu();                
+ArrowMenu arrowMenu = new ArrowMenu();
 
 // Changing line styles
 ArrowMenu arrowMenu = new ArrowMenu(LineStyle.THIN);
